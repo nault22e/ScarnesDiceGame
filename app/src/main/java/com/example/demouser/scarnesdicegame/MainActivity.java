@@ -13,6 +13,9 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Resources res;
+    Random rand;
+
+    //UI components
     ImageView diceView;
     TextView userScore;
     TextView userStatus;
@@ -21,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
     Button holdButton;
     Button resetButton;
 
-    Random rand;
+    //Drawable[] dieImages; --> could also randomly choose die from array of drawables instead
+    // of using switch cass
+
+    //Can also use setImageResource()
+
+
 
 
     @Override
@@ -37,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         userStatus =  findViewById(R.id.user_status);
         compScore = findViewById(R.id.computer_score);
         rollButton = findViewById(R.id.roll_button);
+        holdButton = findViewById(R.id.hold_button);
+        resetButton = findViewById(R.id.reset_button);
 
         rollButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         switch (result){
             case 1:
                 diceView.setImageDrawable(res.getDrawable(R.drawable.dice1));
+                //ContextCompat.getDrawable(this, R.drawable.dice1)
                 break;
             case 2:
                 diceView.setImageDrawable(res.getDrawable(R.drawable.dice2));
@@ -70,5 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return result;
+        //Eddit
     }
 }
