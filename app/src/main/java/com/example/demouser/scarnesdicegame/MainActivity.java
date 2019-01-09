@@ -1,6 +1,7 @@
 package com.example.demouser.scarnesdicegame;
 
 import android.content.res.Resources;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Button rollButton;
     Button holdButton;
     Button resetButton;
+
 
     //Drawable[] dieImages; --> could also randomly choose die from array of drawables instead
     // of using switch cass
@@ -81,6 +83,28 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return result;
-        //Eddit
+    }
+
+    private void handlerDemo(){
+        resetButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                final Handler h = new Handler();
+                Runnable r = new Runnable() {
+                    @Override
+                    //Can add dice conditions within run method (i.e. if score < 20, run again)
+                    public void run() {
+                        int result = rand.nextInt(100);
+                        userScore.setText(Integer.toString(result));
+                        if(result < 50){
+                            h.postDelayed(this, 500);
+                        }
+                    }
+                };
+                h.postDelayed(r, 500); //Run the run method after half a second
+            }
+        });
+
     }
 }
