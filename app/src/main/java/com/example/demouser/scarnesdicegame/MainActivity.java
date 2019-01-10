@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
     Random rand;
 
     //UI components
-    ImageView diceView;
-    TextView userScore;
-    TextView userStatus;
-    TextView compScore;
-    Button rollButton;
-    Button holdButton;
-    Button resetButton;
+    private ImageView diceView;
+    private TextView userScore;
+    private TextView userStatus;
+    private TextView compScore;
+    private Button rollButton;
+    private Button holdButton;
+    private Button resetButton;
 
 
     //Drawable[] dieImages; --> could also randomly choose die from array of drawables instead
